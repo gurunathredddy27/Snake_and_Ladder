@@ -1,5 +1,5 @@
 import java.util.Random;
-public class Main {
+class Main {
     public static void main(String[] args) {
 
         System.out.println("This problem simulates a Snake and Ladder Game. \n The Player starts from 0 rolls the die to get a number between 1 to 6, \n" +
@@ -22,16 +22,23 @@ public class Main {
             } else if (option == 1) {
 
                 player1Position += rollDice;
+                if (player1Position > 100) {
+                    player1Position -= rollDice;
+                }
                 System.out.println("You got ladder, moves ahead of position " + player1Position);
 
             } else {
                 player1Position -= rollDice;
-                System.out.println("You got Snake, moves behind of position " + player1Position);
+                if (player1Position < 0) {
+                    player1Position = 0;
+                }
+                System.out.println("SYou got Snake, moves behind of position  " + player1Position);
             }
-            if (player1Position < 0){
-                System.out.println("the player start from Zero "+ player1Position);
-            }
+
         }
-        System.out.println("the player reaches winning position "+ player1Position);
+        System.out.println("hurray!! you have reached final winning position 100");
+
     }
 }
+
+
