@@ -9,16 +9,22 @@ class Main {
 
         int player1Position = 0;
         System.out.println("Player start position: " + player1Position);
+        int numDiceRolls = 0;
+
 
         while (player1Position < 100) {
+            numDiceRolls++;
+           int positionEveryDie = player1Position;
             int rollDice = random.nextInt(6) + 1;
             System.out.println("the player got number " + rollDice);
             int option = random.nextInt(3); // 0,1, 2
             System.out.println("The option you got is " + option);
 
 
+
             if (option == 0) {
-                System.out.println("no play, you have to stay in same position " + player1Position);
+                System.out.println("no play, you have to stay in same position " + player1Position );
+                System.out.println("your position is "+ positionEveryDie);
             } else if (option == 1) {
 
                 player1Position += rollDice;
@@ -26,6 +32,7 @@ class Main {
                     player1Position -= rollDice;
                 }
                 System.out.println("You got ladder, moves ahead of position " + player1Position);
+                System.out.println("your position is "+ positionEveryDie);
 
             } else {
                 player1Position -= rollDice;
@@ -33,9 +40,12 @@ class Main {
                     player1Position = 0;
                 }
                 System.out.println("SYou got Snake, moves behind of position  " + player1Position);
+                System.out.println("your position is "+ positionEveryDie);
             }
 
+
         }
+        System.out.println("The number of times the dice rolled is "+ numDiceRolls);
         System.out.println("hurray!! you have reached final winning position 100");
 
     }
